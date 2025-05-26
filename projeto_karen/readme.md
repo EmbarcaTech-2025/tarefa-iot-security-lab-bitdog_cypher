@@ -37,22 +37,28 @@ Este projeto implementa uma aplicação de comunicação segura usando o microco
 ## Estrutura do Projeto
 
 firmware/
+
 ├── app/ # Código principal (main.c)
+
 ├── hal/ # Abstrações de hardware (Wi-Fi, MQTT, Criptografia)
+
 ├── include/ # Headers correspondentes
+
 ├── lwipopts.h # Configurações da stack lwIP
+
 ├── mosquitto.conf # Configuração do broker local com autenticação
+
 ├── passwd.txt # Arquivo com senha gerada via mosquitto_passwd
+
 ├── CMakeLists.txt # Arquivo de build do projeto
 
 
 ---
 
 ## Como Executar
-
+```bash
 ### 1. Compile o projeto com Ninja
 
-```bash
 cd build
 ninja
 
@@ -67,7 +73,7 @@ mosquitto.exe -c caminho\para\mosquitto.conf -v
 
 4. Execute o subscriber para o tópico
 mosquitto_sub.exe -h 172.19.8.126 -t debug/karen -u aluno -P senha123
-
+```
 Segurança Implementada
 ✅ Autenticação MQTT com aluno / senha123
 
