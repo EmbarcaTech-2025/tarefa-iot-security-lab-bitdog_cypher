@@ -1,90 +1,90 @@
-Projetos de Sistemas Embarcados - EmbarcaTech 2025
+# Projetos de Sistemas Embarcados - EmbarcaTech 2025
 
-Autora: Karen Beatrice Souza Goncalves
+**Autora:** Karen Beatrice Souza Gonçalves  
+**Curso:** Residência Tecnológica em Sistemas Embarcados  
+**Instituição:** EmbarcaTech - HBr  
+**Brasília, abril de 2025**
 
-Curso: Residencia Tecnologica em Sistemas Embarcados
+---
 
-Instituicao: EmbarcaTech - HBr
+## Sobre este repositório
 
-Brasilia, abril de 2025
+Este repositório reúne os projetos desenvolvidos ao longo do curso de Sistemas Embarcados, durante a etapa de residência.  
+Cada projeto tem sua própria pasta, contendo o código-fonte, documentação e recursos visuais.
 
-Sobre este repositorio
+---
 
-Este repositorio reune os projetos desenvolvidos ao longo do curso de Sistemas Embarcados, durante a etapa de Cada projeto tem sua propria pasta, contendo o codigo-fonte, documentacao e recursos visuais.
+## Projeto: Segurança em IoT com BitDogLab (C/C++)
 
-Projeto: Seguranca em IoT com BitDogLab (C/C++)
+Este projeto implementa uma aplicação de comunicação segura usando o microcontrolador **Raspberry Pi Pico W**, com:
 
-Este projeto implementa uma aplicacao de comunicacao segura usando o microcontrolador Raspberry Pi Pico W (conexao Wi-Fi, protocolo MQTT, autenticacao de usuario e criptografia leve (XOR).
+- Conexão Wi-Fi
+- Protocolo **MQTT**
+- Autenticação de usuário
+- Criptografia leve (**XOR**)
 
-Funcionalidades:
-- Conexao automatica a rede Wi-Fi configurada
-- Comunicacao com broker MQTT com autenticacao (usuario e senha)
-- Publicacao de mensagens no topico MQTT debug/karen
-- Teste de envio sem depender de comunicacao serial (via COM)
-- Organizacao modular com wifi_conn, mqtt_comm e crypto
-- Preparado para futura adicao de criptografia e protecao contra replay
+### Funcionalidades
 
-Estrutura do Projeto:
+- 🔌 Conexão automática à rede Wi-Fi configurada  
+- 📡 Comunicação com broker MQTT com autenticação (usuário e senha)  
+- 📨 Publicação de mensagens no tópico MQTT `debug/karen`  
+- 🔧 Teste de envio sem depender de comunicação serial (via COM)  
+- 📁 Organização modular (`wifi_conn`, `mqtt_comm`, `crypto`)  
+- 🛡️ Preparado para futura adição de criptografia e proteção contra replay  
+
+---
+
+## Estrutura do Projeto
 
 firmware/
+├── app/ # Código principal (main.c)
+├── hal/ # Abstrações de hardware (Wi-Fi, MQTT, Criptografia)
+├── include/ # Headers correspondentes
+├── lwipopts.h # Configurações da stack lwIP
+├── mosquitto.conf # Configuração do broker local com autenticação
+├── passwd.txt # Arquivo com senha gerada via mosquitto_passwd
+├── CMakeLists.txt # Arquivo de build do projeto
 
-■■■ app/ # Codigo principal (main.c)
 
-■■■ hal/ # Abstracoes de hardware (Wi-Fi, MQTT, Criptografia)
+---
 
-■■■ include/ # Headers correspondentes
+## Como Executar
 
-■■■ lwipopts.h # Configuracoes da stack lwIP
+### 1. Compile o projeto com Ninja
 
-■■■ mosquitto.conf # Configuracao do broker local com autenticacao
-
-■■■ passwd.txt # Arquivo com senha gerada via mosquitto_passwd
-
-■■■ CMakeLists.txt # Arquivo de build do projeto
-
-Como Executar:
-
-1. Compile o projeto com Ninja
-
- cd build
- 
- ninja
+```bash
+cd build
+ninja
 
 2. Grave o main.uf2 na BitDogLab
+Coloque a placa em modo BOOTSEL
 
- - Coloque a placa em modo BOOTSEL
- 
- - Arraste o arquivo main.uf2 para o disco RPI-RP2
+Arraste o arquivo main.uf2 para o disco RPI-RP2
 
-3. Inicie o broker Mosquitto com autenticacao
+3. Inicie o broker Mosquitto com autenticação
+cd "C:\Program Files\mosquitto"
+mosquitto.exe -c caminho\para\mosquitto.conf -v
 
- cd "C:\Program Files\mosquitto"
- 
- mosquitto.exe -c caminho\para\mosquitto.conf -v
+4. Execute o subscriber para o tópico
+mosquitto_sub.exe -h 172.19.8.126 -t debug/karen -u aluno -P senha123
 
-4. Execute o subscriber para o topico
+Segurança Implementada
+✅ Autenticação MQTT com aluno / senha123
 
- mosquitto_sub.exe -h 172.19.8.126 -t debug/karen -u aluno -P senha123
+✅ Mensagens publicadas em tópico exclusivo debug/karen
 
-Seguranca implementada:
- Autenticação MQTT com aluno / senha123
+🔐 (Opcional) Criptografia leve XOR do payload
 
- Mensagens publicadas em tópico exclusivo debug/karen
-
-(opcional) Criptografia leve XOR do payload
-
-(opcional) Proteção contra replay com timestamp
+🕒 (Opcional) Proteção contra replay com timestamp
 
 Testado com
-Raspberry Pi Pico W (BitDogLab)
+📌 Raspberry Pi Pico W (BitDogLab)
 
-Broker Mosquitto 2.0+
+🧠 Broker Mosquitto 2.0+
 
-Rede Wi-Fi: AP-ACCESS BLH
+🌐 Rede Wi-Fi: AP-ACCESS BLH
 
-Windows 10 + PowerShell + VS Code
-
-
+💻 Windows 10 + PowerShell + VS Code
 
 
 
