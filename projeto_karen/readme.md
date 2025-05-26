@@ -1,4 +1,5 @@
 Projetos de Sistemas Embarcados - EmbarcaTech 2025
+
 *Autora: Karen Beatrice Souza Goncalves*
 Curso: Residencia Tecnologica em Sistemas Embarcados
 Instituicao: EmbarcaTech - HBr
