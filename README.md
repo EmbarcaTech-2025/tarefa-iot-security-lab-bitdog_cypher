@@ -2,7 +2,7 @@
 
 # Tarefa: IoT Security Lab - EmbarcaTech 2025
 
-Autor: **Fábio Gabriel da Silva barbosa**
+Autores: **Fábio Gabriel da Silva barbosa**  e **Karen Beatrice Souza Gonçalves**
 
 Curso: Residência Tecnológica em Sistemas Embarcados
 
