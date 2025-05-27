@@ -22,7 +22,7 @@ Brasília-DF, Maio de 2025
   - Usuário: `Fabio`
   - Senha: `123`
 
-### 2. Teste da Publucação
+### 2. Teste da Publicação
 
 No terminal do computador (conectado na mesma rede), execute:
 ```
